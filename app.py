@@ -1062,4 +1062,11 @@ with gr.Blocks(theme=custom_theme, title="Sistema de Gestión de Pagos") as demo
     conectar_pasarela(PG)
 
 if __name__ == "__main__":
-    demo.launch(share=True, allowed_paths=[os.path.abspath(COMP_DIR), os.path.abspath(EVID_DIR)])
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=port,
+        allowed_paths=[os.path.abspath(COMP_DIR), os.path.abspath(EVID_DIR)]
+    )
+         
+    
